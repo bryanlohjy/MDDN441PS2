@@ -28,15 +28,14 @@ for line in file:
 x_sequence = get_snake_loop(imgs, 'x', 23, 16)
 y_sequence = get_snake_loop(imgs, 'y', 23, 16)
 
-# Create sequenced text files ======================
-x_file = open('./temp/sequencer/x_sequence.txt', 'w') 
-y_file = open('./temp/sequencer/y_sequence.txt', 'w') 
-for x_img in x_sequence:
-    x_file.write(x_img + '\n')
+# Create sequenced list of images in csv file ======================
+sequence_csv = open('./temp/sequencer/sequence.csv', 'w')
+column_titles = 'index,x_img,y_img'
+sequence_csv.write(column_titles + '\n')
 
-x_file.close()
+index = 0
+for i in range(len(x_sequence)):
+    sequence_csv.write('{},{},{}\n'.format(index, x_sequence[index], y_sequence[index]))
+    index+=1
 
-for y_img in y_sequence:
-    y_file.write(y_img + '\n')
-
-y_file.close()
+sequence_csv.close()
