@@ -26,7 +26,7 @@ for line in file:
     imgs.append(line.replace('"','').strip())
 
 x_sequence = get_snake_loop(imgs, 'x', 23, 16)
-y_sequence = get_snake_loop(imgs, 'y', 23, 16)
+y_sequence = get_snake_loop(imgs, 'y', 23, 16)[::-1] # flip to make a more compelling sequence
 
 # Create sequenced list of images in csv file ======================
 sequence_csv = open('./temp/sequencer/sequence.csv', 'w')
